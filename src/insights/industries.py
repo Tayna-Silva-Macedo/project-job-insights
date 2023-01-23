@@ -21,7 +21,7 @@ def get_unique_industries(path: str) -> List[str]:
 
     result = []
     for job in data:
-        if job["industry"] not in result and job["industry"]:
+        if job["industry"] and job["industry"] not in result:
             result.append(job["industry"])
 
     return result
@@ -42,4 +42,4 @@ def filter_by_industry(jobs: List[Dict], industry: str) -> List[Dict]:
     list
         List of jobs with provided industry
     """
-    raise NotImplementedError
+    return [job for job in jobs if job["industry"] == industry]
