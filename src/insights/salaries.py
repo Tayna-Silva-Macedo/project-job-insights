@@ -28,9 +28,6 @@ def get_max_salary(path: str) -> int:
     return result
 
 
-print(get_max_salary("data/jobs.csv"))
-
-
 def get_min_salary(path: str) -> int:
     """Get the minimum salary of all jobs
 
@@ -46,7 +43,15 @@ def get_min_salary(path: str) -> int:
     int
         The minimum salary paid out of all job opportunities
     """
-    raise NotImplementedError
+
+    data = read(path)
+
+    result = float("inf")
+    for job in data:
+        if job["min_salary"].isdigit() and int(job["min_salary"]) < result:
+            result = int(job["min_salary"])
+
+    return result
 
 
 def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
