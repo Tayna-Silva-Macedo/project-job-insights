@@ -17,14 +17,14 @@ def get_unique_industries(path: str) -> List[str]:
     list
         List of unique industries
     """
-    data = read(path)
+    jobs = read(path)
 
-    result = []
-    for job in data:
-        if job["industry"] and job["industry"] not in result:
-            result.append(job["industry"])
+    unique_industries = set()
+    for job in jobs:
+        if job["industry"]:
+            unique_industries.add(job["industry"])
 
-    return result
+    return list(unique_industries)
 
 
 def filter_by_industry(jobs: List[Dict], industry: str) -> List[Dict]:
