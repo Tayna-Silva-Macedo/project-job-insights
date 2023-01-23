@@ -18,14 +18,14 @@ def get_max_salary(path: str) -> int:
         The maximum salary paid out of all job opportunities
     """
 
-    data = read(path)
+    jobs = read(path)
 
-    result = int()
-    for job in data:
-        if job["max_salary"].isdigit() and int(job["max_salary"]) > result:
-            result = int(job["max_salary"])
+    max_salary = int()
+    for job in jobs:
+        if job["max_salary"].isdigit() and int(job["max_salary"]) > max_salary:
+            max_salary = int(job["max_salary"])
 
-    return result
+    return max_salary
 
 
 def get_min_salary(path: str) -> int:
@@ -44,14 +44,14 @@ def get_min_salary(path: str) -> int:
         The minimum salary paid out of all job opportunities
     """
 
-    data = read(path)
+    jobs = read(path)
 
-    result = float("inf")
-    for job in data:
-        if job["min_salary"].isdigit() and int(job["min_salary"]) < result:
-            result = int(job["min_salary"])
+    min_salary = float("inf")
+    for job in jobs:
+        if job["min_salary"].isdigit() and int(job["min_salary"]) < min_salary:
+            min_salary = int(job["min_salary"])
 
-    return result
+    return min_salary
 
 
 def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
@@ -78,20 +78,17 @@ def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
         If `salary` isn't a valid integer
     """
 
-    if "min_salary" not in job or "max_salary" not in job:
-        raise ValueError
-
     if (
-        not isinstance(job["min_salary"], int)
-        or not isinstance(job["max_salary"], int)
-        or not isinstance(salary, (int, str))
+        "min_salary" not in job
+        or "max_salary" not in job
+        or not str(job["min_salary"]).isdigit()
+        or not str(job["max_salary"]).isdigit()
+        or not isinstance(salary, (str, int))
+        or int(job["min_salary"]) > int(job["max_salary"])
     ):
         raise ValueError
 
-    if job["min_salary"] > job["max_salary"]:
-        raise ValueError
-
-    return job["min_salary"] <= int(salary) <= job["max_salary"]
+    return int(job["min_salary"]) <= int(salary) <= int(job["max_salary"])
 
 
 def filter_by_salary_range(
@@ -111,4 +108,14 @@ def filter_by_salary_range(
     list
         Jobs whose salary range contains `salary`
     """
-    raise NotImplementedError
+
+    jobs_filtered = []
+
+    for job in jobs:
+        try:
+            if matches_salary_range(job, salary):
+                jobs_filtered.append(job)
+        except ValueError:
+            pass
+
+    return jobs_filtered
