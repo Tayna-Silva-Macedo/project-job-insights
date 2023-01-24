@@ -1,16 +1,15 @@
 # Bem-vindo ao Projeto Job Insights!
 
 Este é um projeto da [Trybe](https://www.betrybe.com/) que foi desenvolvido no módulo de Ciência da Computação.
-O Job Insights é um site que permite a consulta de dados sobre empregos. Estes dados foram extraídos do site Glassdoor e obtidos através do Kaggle, uma plataforma que disponibiliza conjuntos de dados para cientistas de dados.
+Trata-se de um site que permite a consulta de dados sobre empregos. Estes dados foram extraídos do site Glassdoor e obtidos através do Kaggle, uma plataforma que disponibiliza conjuntos de dados para cientistas de dados.
 
 ![job](https://user-images.githubusercontent.com/99992183/214390151-5f208766-dbd7-4ac4-bc2f-299e1f7a04e0.png)
 
-
 ## Tecnologias utilizadas
 
-Em seu desenvolvimento foi utilizada linguagem ***Python*** para escrever os códigos e ***Flask***, um framework web muito popular na comunidade Python para o desenvolvimento web. 
+Em seu desenvolvimento foi utilizada linguagem ***Python*** para escrever os códigos e ***Flask***, um framework web muito popular na comunidade Python,  para o desenvolvimento web. 
 
-Fora isso, foi utilizado o framework ***pytest***, para testar implementações já fornecidas pela Trybe.
+Fora isso, foi utilizado o framework ***pytest***, para testar funções que já haviam sido implementadas pela Trybe.
 
 ## Habilidades que foram trabalhadas:
 
