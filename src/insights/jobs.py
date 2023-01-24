@@ -17,10 +17,17 @@ def read(path: str) -> List[Dict]:
     list
         List of rows as dicts
     """
-    with open(path) as file:
-        reader = csv.DictReader(file)
 
-        return list(reader)
+    if not path.endswith(".csv"):
+        raise ValueError("Formato de arquivo inválido!")
+
+    try:
+        with open(path) as file:
+            reader = csv.DictReader(file)
+            return list(reader)
+
+    except FileNotFoundError:
+        raise FileNotFoundError(f"Arquivo inexistente: {path}")
 
 
 def get_unique_job_types(path: str) -> List[str]:
