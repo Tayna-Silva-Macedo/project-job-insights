@@ -3,9 +3,8 @@
 Este é um projeto da [Trybe](https://www.betrybe.com/) que foi desenvolvido no módulo de Ciência da Computação.
 O Job Insights é um site que permite a consulta de dados sobre empregos. Estes dados foram extraídos do site Glassdoor e obtidos através do Kaggle, uma plataforma que disponibiliza conjuntos de dados para cientistas de dados.
 
-<p align="center">
-  ![job](https://user-images.githubusercontent.com/99992183/214390151-5f208766-dbd7-4ac4-bc2f-299e1f7a04e0.png)
-</p>
+![job](https://user-images.githubusercontent.com/99992183/214390151-5f208766-dbd7-4ac4-bc2f-299e1f7a04e0.png)
+
 
 ## Tecnologias utilizadas
 
@@ -46,14 +45,14 @@ python3 -m venv .venv && source .venv/bin/activate
 python3 -m pip install -r dev-requirements.txt
 ```
 
-5. Rode a aplicação flask:
+5. Rode a aplicação Flask:
 ```
 flask run
 ```
 
-> ℹ️ Depois de subir a aplicação, é possível acessar o site ferado pelo Flask em http://localhost:5000.
+> ℹ️ Depois de subir a aplicação, é possível acessar o site gerado pelo Flask em http://localhost:5000.
 
-6. Para rodar os testes escritos é utilizado o seguinte comando:
+6. Para rodar os testes é utilizado o seguinte comando:
 
 ```
 python3 -m pytest
